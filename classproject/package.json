@@ -1,0 +1,12 @@
+{
+  "name": "classproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "login.php",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./input.css -o ./output.css --watch",
+    "start": "php -S localhost:8000 -t ."
+  },
+  "author": "",
+  "license": "ISC"
+}
