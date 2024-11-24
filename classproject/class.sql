@@ -49,3 +49,22 @@ INSERT INTO events (event_name, description, event_date) VALUES
 
 -- Ensure you change the password hashes above to actual bcrypt hashes. 
 -- Example: You can use `password_hash('your_password', PASSWORD_BCRYPT)` in PHP to generate these hashes.
+
+CREATE TABLE subscriptions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO events (title, description, date) VALUES
+('Math Exam', 'The final exam for the math class. Make sure to study all topics covered.', '2024-12-10 10:00:00'),
+('Physics Lab', 'Lab session on the new physics experiments. Be prepared with your lab coat.', '2024-12-12 14:00:00'),
+('Project Submission Deadline', 'The deadline for submitting your final project. No extensions will be given.', '2024-12-15 23:59:00'),
+('Midterm Exam', 'The midterm exam will cover chapters 1-5. Make sure to review all topics.', '2024-12-20 09:00:00'),
+('Holiday Break', 'Winter break begins! Enjoy your holidays and recharge for the next semester.', '2024-12-23 00:00:00');
+
+INSERT INTO subscriptions (email) VALUES
+('student1@example.com'),
+('student2@example.com'),
+('student3@example.com'),
+('student4@example.com');
