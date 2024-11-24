@@ -42,20 +42,18 @@ This project is a PHP-based web application designed to manage class events, ann
 ## Installation and Setup
 
 ### 1. Clone the Repository
+
 ```bash
 git clone https://github.com/your-repository/class-project.git
 cd class-project
+
 2. Install PHP Dependencies
 Run the following command to install required PHP packages:
 
-bash
-Copy code
 composer install
 3. Install Tailwind CSS and Build Assets
 Make sure Tailwind CSS is installed. Then build the CSS files:
 
-bash
-Copy code
 npm install
 npm run build:css
 4. Configure the Environment
@@ -84,21 +82,15 @@ USE class_project;
 b. Import the Database Schema
 The schema is located in the class.sql file. Import it into your database:
 
-bash
-Copy code
 mysql -u root -p class_project < class.sql
 Running the Project
 Start the Localhost Server
 You can run the project on localhost:3000 using PHP's built-in server:
 
-bash
-Copy code
 php -S localhost:3000
 Tailwind CSS in Development
 For real-time updates to Tailwind CSS during development, run:
 
-bash
-Copy code
 npm run watch
 Folder Structure
 1. database/
@@ -125,8 +117,6 @@ The database/connection.php file connects the project to the database. Ensure yo
 
 Example:
 
-php
-Copy code
 <?php
 try {
     $pdo = new PDO("mysql:host=" . getenv('DB_HOST') . ";dbname=" . getenv('DB_DATABASE'), getenv('DB_USERNAME'), getenv('DB_PASSWORD'));
@@ -144,32 +134,23 @@ Notifications and progress tracking are integrated with user profiles.
 Commands Summary
 Clone the repository:
 
-bash
-Copy code
 git clone https://github.com/your-repository/class-project.git
 cd class-project
 Install Composer dependencies:
 
-bash
-Copy code
 composer install
 Build Tailwind CSS:
 
-bash
-Copy code
 npm install
 npm run build:css
 Set up the database:
 
-bash
-Copy code
 mysql -u root -p class_project < class.sql
 Run the project:
 
-bash
-Copy code
 php -S localhost:3000
 Notes
+
 Run Without MySQL
 If MySQL is not configured, the project will still run, but features requiring database interactions (like dynamic content) will not work.
 
