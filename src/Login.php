@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </div>
             <?php endif; ?>
             <p class="mt-4 text-sm text-center text-gray-700">
-                Don't have an account? <a href="signup.php" class="text-blue-600 hover:underline">Sign up</a>
+                Don't have an account? <a href="Signup.php" class="text-blue-600 hover:underline">Sign up</a>
             </p>
         </div>
     </section>

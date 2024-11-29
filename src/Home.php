@@ -13,9 +13,9 @@ require "./header.php";
 </head>
 <script>
     document.getElementById('user-menu-button').addEventListener('click', () => {
-    const menu = document.getElementById('user-menu');
-    menu.classList.toggle('hidden');
-});
+        const menu = document.getElementById('user-menu');
+        menu.classList.toggle('hidden');
+    });
 </script>
 
 <body class="bg-gray-100 font-sans">
@@ -60,40 +60,66 @@ require "./header.php";
     </header>
 
 
-    <section class="bg-blue-600 text-white py-16">
+    <section class="bg-gradient-to-r from-blue-600 via-blue-800 to-blue-700 text-white py-24">
         <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center">
-            <h1 class="text-5xl font-bold mb-6 leading-tight">
+            <!-- Title -->
+            <h1 class="text-4xl sm:text-5xl font-extrabold  animate-pulse leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-400">
                 Empowering Education Through Technology
             </h1>
-            <p class="text-lg text-blue-200 mb-8 max-w-2xl mx-auto">
-                Stay ahead with tools, resources, and events tailored to support your academic and career aspirations.
+
+            <!-- Subtitle -->
+            <p class="text-lg sm:text-xl text-blue-200 mb-8 max-w-3xl mx-auto">
+                Stay ahead with cutting-edge tools, resources, and events tailored to support your academic and career aspirations in the ever-evolving world of Computer Science.
             </p>
-            <div class="flex justify-center">
-                <a href="#get-started"
-                    class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium text-lg shadow-md hover:bg-gray-100 transition duration-300">
-                    Get Started
-                </a>
-            </div>
+
+            <!-- Call-to-Action Button -->
+            <a href="#learn-more" class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white py-3 px-8 rounded-lg text-xl font-semibold transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 hover:shadow-lg">
+                Explore More
+            </a>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section id="search" class="my-4">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-xl font-bold mb-2">Search</h3>
+            <form action="search.php" method="GET" class="flex">
+                <input type="text" name="query" placeholder="Search..." class="flex-grow p-2 border border-gray-300 rounded-l-lg">
+                <button type="submit" class="bg-blue-600 text-white px-4 rounded-r-lg">Search</button>
+            </form>
         </div>
     </section>
 
     <!-- Dashboard Summary -->
     <section id="dashboard" class="py-8 bg-gray-100">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-4">Dashboard</h3>
+            <h3
+                class="text-3xl font-bold mb-4 text-gray-800 transition-transform transform hover:scale-105"
+                data-aos="fade-up">
+                Dashboard
+            </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-white shadow-lg p-4 rounded-lg">
-                    <h4 class="text-xl font-semibold mb-2">Active Announcements</h4>
+                <div
+                    class="bg-white shadow-lg p-4 rounded-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
+                    data-aos="fade-right"
+                    data-aos-delay="100">
+                    <h4 class="text-xl font-semibold mb-2 text-gray-900">Active Announcements</h4>
                     <p class="text-gray-700">Stay informed with the latest updates from our team.</p>
                     <a href="#announcements" class="text-blue-600 hover:underline mt-2 block">View Announcements</a>
                 </div>
-                <div class="bg-white shadow-lg p-4 rounded-lg">
-                    <h4 class="text-xl font-semibold mb-2">Upcoming Events</h4>
+                <div
+                    class="bg-white shadow-lg p-4 rounded-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
+                    data-aos="fade-up"
+                    data-aos-delay="200">
+                    <h4 class="text-xl font-semibold mb-2 text-gray-900">Upcoming Events</h4>
                     <p class="text-gray-700">Discover and participate in events happening soon.</p>
                     <a href="#events" class="text-blue-600 hover:underline mt-2 block">View Events</a>
                 </div>
-                <div class="bg-white shadow-lg p-4 rounded-lg">
-                    <h4 class="text-xl font-semibold mb-2">Search Resources</h4>
+                <div
+                    class="bg-white shadow-lg p-4 rounded-lg hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
+                    data-aos="fade-left"
+                    data-aos-delay="300">
+                    <h4 class="text-xl font-semibold mb-2 text-gray-900">Search Resources</h4>
                     <p class="text-gray-700">Find articles, documents, or information quickly.</p>
                     <a href="#search" class="text-blue-600 hover:underline mt-2 block">Start Searching</a>
                 </div>
@@ -101,65 +127,66 @@ require "./header.php";
         </div>
     </section>
 
-    <section id="class-calendar" class="my-12 bg-gray-100 py-8">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Class Calendar</h2>
 
-        <!-- Calendar View -->
-        <div class="bg-white shadow-lg rounded-lg p-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Calendar Display -->
-                <div>
-                    <div class="bg-gray-50 p-4 rounded-lg shadow-md">
-                        <h3 class="text-2xl font-semibold mb-4">Upcoming Events</h3>
-                        <ul class="space-y-4">
-                            <?php
-                            $stmt = $pdo->query("SELECT title, date, description FROM events ORDER BY date ASC LIMIT 5");
-                            $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    <section id="class-calendar" class="my-6 bg-gray-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Class Calendar</h2>
 
-                            if ($events) {
-                                foreach ($events as $event) {
-                                    echo "<li class='p-4 bg-blue-100 rounded-lg'>";
-                                    echo "<h4 class='text-lg font-bold text-blue-700'>" . htmlspecialchars($event['title']) . "</h4>";
-                                    echo "<p class='text-gray-600'>" . htmlspecialchars($event['description']) . "</p>";
-                                    echo "<small class='text-gray-500'>Date: " . htmlspecialchars($event['date']) . "</small>";
-                                    echo "</li>";
+            <!-- Calendar View -->
+            <div class="bg-white shadow-lg rounded-lg p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Calendar Display -->
+                    <div>
+                        <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                            <h3 class="text-2xl font-semibold mb-4">Upcoming Events</h3>
+                            <ul class="space-y-4">
+                                <?php
+                                $stmt = $pdo->query("SELECT event_name, event_date, description FROM events ORDER BY event_date ASC LIMIT 5");
+                                $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                                if ($events) {
+                                    foreach ($events as $event) {
+                                        echo "<li class='p-4 bg-blue-100 rounded-lg'>";
+                                        echo "<h4 class='text-lg font-bold text-blue-700'>" . htmlspecialchars($event['title']) . "</h4>";
+                                        echo "<p class='text-gray-600'>" . htmlspecialchars($event['description']) . "</p>";
+                                        echo "<small class='text-gray-500'>Date: " . htmlspecialchars($event['event_date']) . "</small>";
+                                        echo "</li>";
+                                    }
+                                } else {
+                                    echo "<p class='text-gray-600'>No upcoming events at this time.</p>";
                                 }
-                            } else {
-                                echo "<p class='text-gray-600'>No upcoming events at this time.</p>";
-                            }
-                            ?>
-                        </ul>
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Calendar View -->
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-semibold mb-4">Calendar View</h3>
+                        <iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id_here"
+                            style="border: 0"
+                            class="w-full h-96 rounded-lg"
+                            frameborder="0"
+                            scrolling="no">
+                        </iframe>
                     </div>
                 </div>
+            </div>
 
-                <!-- Calendar View -->
-                <div class="bg-gray-50 p-4 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-4">Calendar View</h3>
-                    <iframe src="https://calendar.google.com/calendar/embed?src=your_calendar_id_here" 
-                            style="border: 0" 
-                            class="w-full h-96 rounded-lg" 
-                            frameborder="0" 
-                            scrolling="no">
-                    </iframe>
-                </div>
+            <!-- Notifications Section -->
+            <div class="mt-8 bg-white shadow-lg rounded-lg p-6">
+                <h3 class="text-2xl font-semibold mb-4">Event Notifications</h3>
+                <p class="text-gray-700">Stay updated on upcoming events and deadlines with notifications. Subscribe for reminders via email or SMS!</p>
+                <form action="subscribe.php" method="POST" class="mt-4 flex space-x-4">
+                    <input type="email" name="email" placeholder="Enter your email"
+                        class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-500">
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
+                        Subscribe
+                    </button>
+                </form>
             </div>
         </div>
-
-        <!-- Notifications Section -->
-        <div class="mt-8 bg-white shadow-lg rounded-lg p-6">
-            <h3 class="text-2xl font-semibold mb-4">Event Notifications</h3>
-            <p class="text-gray-700">Stay updated on upcoming events and deadlines with notifications. Subscribe for reminders via email or SMS!</p>
-            <form action="subscribe.php" method="POST" class="mt-4 flex space-x-4">
-                <input type="email" name="email" placeholder="Enter your email" 
-                       class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-500">
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-                    Subscribe
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
+    </section>
 
 
     <section id="announcements" class="my-12">
@@ -189,45 +216,36 @@ require "./header.php";
     </section>
 
 
-
-    <!-- Upcoming Events Section -->
-    <section id="events" class="my-8">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-4">Upcoming Events</h3>
-            <div class="bg-white shadow-md rounded-lg p-4">
-                <?php
-                $stmt = $pdo->query("SELECT event_name, event_date, description FROM events ORDER BY event_date ASC LIMIT 5");
-                $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                if ($events) {
-                    foreach ($events as $event) {
-                        echo "<div class='mb-4'><h4 class='text-xl font-semibold'>" . htmlspecialchars($event['event_name']) . "</h4>";
-                        echo "<p class='text-gray-700'>" . htmlspecialchars($event['description']) . "</p>";
-                        echo "<small class='text-gray-500'>Date: " . htmlspecialchars($event['event_date']) . "</small></div>";
-                    }
-                } else {
-                    echo "<p>No upcoming events at this time.</p>";
-                }
-                ?>
-            </div>
-        </div>
-    </section>
-
-    <!-- Search Bar -->
-    <section id="search" class="my-8">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-bold mb-4">Search</h3>
-            <form action="search.php" method="GET" class="flex">
-                <input type="text" name="query" placeholder="Search..." class="flex-grow p-2 border border-gray-300 rounded-l-lg">
-                <button type="submit" class="bg-blue-600 text-white px-4 rounded-r-lg">Search</button>
-            </form>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center py-4 mt-8">
-        <p>&copy; 2024 Your Platform Name. All rights reserved.</p>
+    <footer class="bg-gray-900 text-white text-center py-6 mt-8">
+        <div class="container mx-auto px-4">
+            <!-- Branding -->
+            <div class="mb-4">
+                <img src="./assets/classpic.png" alt="Platform Logo" class="h-12 mx-auto">
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="mb-4">
+                <a href="#" class="text-gray-400 hover:text-white px-4">Home</a>
+                <a href="#" class="text-gray-400 hover:text-white px-4">About Us</a>
+                <a href="#" class="text-gray-400 hover:text-white px-4">Contact</a>
+                <a href="#" class="text-gray-400 hover:text-white px-4">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white px-4">Terms of Service</a>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="mb-4">
+                <a href="#" class="text-gray-400 hover:text-white px-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white px-3"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white px-3"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white px-3"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <!-- Copyright Notice -->
+            <p class="text-sm text-gray-400">&copy; 2024 Computer Science Class. All rights reserved.</p>
+        </div>
     </footer>
+
 </body>
 
 </html>
