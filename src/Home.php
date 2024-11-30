@@ -11,39 +11,34 @@ require "./header.php";
     <title>Homepage</title>
     <link href="../output.css" rel="stylesheet">
 </head>
-<script>
-    document.getElementById('user-menu-button').addEventListener('click', () => {
-        const menu = document.getElementById('user-menu');
-        menu.classList.toggle('hidden');
-    });
-</script>
+
 
 <body class="bg-gray-100 font-sans">
     <!-- Header -->
-    <header class="bg-gray-900 text-white shadow-lg p-4">
+    <header class="bg-gray-900 text-white shadow-lg p-4 fixed top-0 w-full">
         <div class="container mx-auto flex items-center justify-between">
             <!-- Logo and Branding -->
             <div class="flex items-center space-x-4">
                 <img src="./assets/classpic.png" alt="Class Logo" class="h-10 w-10 rounded-full">
-                <h1 class="text-2xl font-bold">Computer Science Class</h1>
+                <h1 class="text-2xl font-bold cursor-pointer">Computer Science Class</h1>
             </div>
             <!-- Navigation Menu -->
             <nav class="hidden md:flex space-x-6">
-                <a href="#dashboard" class="text-white hover:text-blue-400 transition">Dashboard</a>
+                <a href="./dashboard.php" class="text-white hover:text-blue-400 transition">Dashboard</a>
                 <a href="#announcements" class="text-white hover:text-blue-400 transition">Announcements</a>
                 <a href="#events" class="text-white hover:text-blue-400 transition">Upcoming Events</a>
                 <a href="#search" class="text-white hover:text-blue-400 transition">Search</a>
             </nav>
             <!-- User Actions -->
             <div class="relative">
-                <button id="user-menu-button" class="flex items-center space-x-2 focus:outline-none">
-                    <img src="./assets/user.png" alt="User Avatar" class="h-8 w-8 rounded-full">
+                <button id="button" class="button flex items-center space-x-2 focus:outline-none">
+                    <img src="./assets/user.png" alt="User image" class="h-8 w-8 rounded-full">
                     <span>Hi, <?= htmlspecialchars($user['first_name']) ?>!</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
-                <div id="user-menu" class="hidden absolute right-0 mt-2 bg-white text-gray-900 shadow-lg rounded-lg w-48">
+                <div id="menu" class="hidden absolute right-0 mt-2 bg-white text-gray-900 shadow-lg rounded-lg w-48">
                     <a href="#profile" class="block px-4 py-2 hover:bg-gray-100">Profile</a>
                     <a href="#settings" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
                     <a href="./Login.php" class="block px-4 py-2 text-red-600 hover:bg-gray-100">Logout</a>
@@ -245,7 +240,14 @@ require "./header.php";
             <p class="text-sm text-gray-400">&copy; 2024 Computer Science Class. All rights reserved.</p>
         </div>
     </footer>
-
+<script>
+    const button = document.getElementById("button");
+    console.log(button);
+    button.addEventListener("click",() =>{
+      const menu = document.getElementById("menu");
+      menu.classList.toggle("hidden");
+    })
+    </script>
 </body>
 
 </html>

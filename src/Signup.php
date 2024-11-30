@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             ':password' => $password,
         ]);
         $message = "Signup successful! You can now log in.";
+        header("Location: ./Login.php");
+        
     } catch (PDOException $e) {
         $message = "Error: " . $e->getMessage();
     }

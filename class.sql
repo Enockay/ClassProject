@@ -68,3 +68,73 @@ INSERT INTO subscriptions (email) VALUES
 ('student2@example.com'),
 ('student3@example.com'),
 ('student4@example.com');
+
+-- Courses Table
+CREATE TABLE courses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    course_name VARCHAR(100) NOT NULL,
+    unit_code VARCHAR(10) NOT NULL,
+    lecturer_name VARCHAR(100) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Populate Courses Table
+INSERT INTO courses (user_id, course_name, unit_code, lecturer_name) VALUES
+(1, 'Introduction to Programming', 'CS101', 'Dr. Alice Brown'),
+(1, 'Data Structures', 'CS102', 'Prof. Bob White'),
+(1, 'Database Systems', 'CS103', 'Dr. Carol Green'),
+(2, 'Operating Systems', 'CS104', 'Prof. David Black'),
+(2, 'Computer Networks', 'CS105', 'Dr. Eva Blue'),
+(2, 'Software Engineering', 'CS106', 'Dr. Frank Red'),
+(3, 'Machine Learning', 'CS107', 'Dr. Grace Yellow'),
+(3, 'Artificial Intelligence', 'CS108', 'Prof. Henry Orange'),
+(3, 'Cybersecurity', 'CS109', 'Dr. Ian Purple'),
+(3, 'Web Development', 'CS110', 'Prof. Jack Pink');
+
+-- Assignments Table
+CREATE TABLE assignments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    deadline DATE NOT NULL,
+    status ENUM('Pending', 'Completed') NOT NULL DEFAULT 'Pending',
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Populate Assignments Table
+INSERT INTO assignments (user_id, title, deadline, status) VALUES
+(1, 'Assignment 1 - Programming Basics', '2024-12-05', 'Completed'),
+(1, 'Assignment 2 - Data Structures', '2024-12-10', 'Pending'),
+(1, 'Assignment 3 - SQL Queries', '2024-12-15', 'Completed'),
+(2, 'Assignment 1 - Operating Systems', '2024-12-08', 'Pending'),
+(2, 'Assignment 2 - Network Models', '2024-12-12', 'Pending'),
+(2, 'Assignment 3 - Software Design', '2024-12-20', 'Completed'),
+(3, 'Assignment 1 - AI Basics', '2024-12-07', 'Pending'),
+(3, 'Assignment 2 - ML Models', '2024-12-09', 'Pending'),
+(3, 'Assignment 3 - Cyber Threats', '2024-12-13', 'Completed'),
+(3, 'Assignment 4 - Web Design', '2024-12-14', 'Pending');
+
+CREATE TABLE grades (
+    grade_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL, -- Matches `user_id` from `courses`
+    course_id INT NOT NULL, -- Matches `id` from `courses`
+    marks_awarded DECIMAL(5, 2) NOT NULL,
+    total_marks DECIMAL(5, 2) NOT NULL,
+    feedback TEXT,
+    date_assessed DATE NOT NULL,
+    FOREIGN KEY (course_id) REFERENCES courses(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+INSERT INTO grades (user_id, course_id, marks_awarded, total_marks, feedback, date_assessed) VALUES
+(1, 1, 88.50, 100.00, 'Excellent understanding of algorithms.', '2024-11-01'),
+(1, 2, 92.00, 100.00, 'Exceptional performance in database queries.', '2024-11-02'),
+(1, 3, 84.00, 100.00, 'Good work on system calls and scheduling.', '2024-11-03'),
+(2, 1, 75.00, 100.00, 'Satisfactory grasp of sorting algorithms.', '2024-11-01'),
+(2, 4, 78.50, 100.00, 'Good understanding of network protocols.', '2024-11-02'),
+(3, 2, 91.00, 100.00, 'Well-structured database models.', '2024-11-02'),
+(3, 3, 89.50, 100.00, 'Strong performance in process management.', '2024-11-03'),
+(3, 5, 95.00, 100.00, 'Outstanding work in AI project.', '2024-11-04'),
+(4, 1, 68.00, 100.00, 'Needs improvement in recursive algorithms.', '2024-11-01'),
+(4, 4, 72.00, 100.00, 'Satisfactory performance in subnetting.', '2024-11-02');
