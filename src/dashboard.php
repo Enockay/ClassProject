@@ -34,32 +34,83 @@ require "./header.php";
 
 <body class="bg-gray-100">
     <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 flex justify-between items-center fixed top-0 w-full z-10 shadow-lg">
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-3 flex justify-between items-center fixed top-0 w-full z-10 shadow-lg">
+        <!-- Logo and Title -->
         <div class="flex items-center space-x-3">
             <div class="rounded-full bg-white p-2">
-                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 7v-6.4a1 1 0 01.553-.894l6.197-3.1a1 1 0 010 1.788l-6.197 3.1A1 1 0 0112 16.6V21z"></path>
                 </svg>
             </div>
-            <h1 class="text-2xl font-extrabold">Student Dashboard</h1>
+            <h1 class="text-2xl font-extrabold">Student Portal</h1>
         </div>
-        <div class="flex items-center space-x-6">
-            <span class="text-lg font-medium text-yellow-200 animate-pulse">Welcome, <?= htmlspecialchars($user['first_name']) ?>!</span>
-            <a href="./Home.php" class="text-sm font-semibold bg-red-500 hover:bg-red-600 transition rounded-lg px-4 py-2 text-white">
-                Logout
-            </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="menu-toggle" class="md:hidden flex items-center text-white focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+
+        <!-- Full Header Content -->
+        <div id="menu" class="hidden md:flex md:items-center md:space-x-6 md:relative md:flex-grow md:max-w-md">
+            <!-- Search Bar -->
+            <div class="flex-grow max-w-md mx-4">
+                <div class="relative">
+                    <input type="text" class="w-full px-4 py-2 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-400" placeholder="Search..." />
+                    <button class="absolute right-2 top-2 bg-indigo-600 text-white p-1 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 6a4 4 0 110 8 4 4 0 010-8zm0 0L21 21" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notification Icon -->
+            <button class="relative">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hover:text-yellow-300 transition" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-5-5.917V4a2 2 0 10-4 0v1.083A6.002 6.002 0 004 11v3.159c0 .417-.156.823-.437 1.142L2 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+                <span class="absolute top-0 right-0 inline-flex items-center justify-center w-4 h-4 text-xs font-bold text-white bg-red-500 rounded-full">3</span>
+            </button>
+
+            <!-- Profile Dropdown -->
+            <div class="relative">
+                <button class="flex items-center space-x-2 hover:text-yellow-300 transition">
+                    <img src="./assets/user.png" alt="Profile" class="w-8 h-8 rounded-full" />
+                    <span class="text-sm font-medium"><?= htmlspecialchars($user['first_name']) ?></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <!-- Dropdown Menu -->
+                <div class="absolute right-0 mt-2 w-48 bg-white text-black rounded-lg shadow-lg py-2 hidden group-hover:block">
+                    <a href="#profile" class="block px-4 py-2 hover:bg-indigo-100">Profile</a>
+                    <a href="#settings" class="block px-4 py-2 hover:bg-indigo-100">Settings</a>
+                    <a href="#logout" class="block px-4 py-2 hover:bg-indigo-100">Logout</a>
+                </div>
+            </div>
         </div>
     </header>
+
+    <script>
+        // Toggle menu for small screens
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
 
 
     <!-- Main Container -->
     <div class="flex flex-col md:flex-row pt-16">
         <!-- Sidebar -->
         <!-- Sidebar Navigation -->
-        <nav class="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white w-full md:w-1/6 h-screen p-6">
+        <nav class="bg-gradient-to-r from-cyan-950 to-cyan-700 text-white w-full md:w-1/6 h-screen p-6">
             <ul class="space-y-6">
                 <li>
-                    <a href="#overview" data-content="" class="sidebar-link flex items-center text-lg font-semibold hover:text-indigo-200 transition duration-200">
+                    <a href="#overview" data-content="default.php" class="sidebar-link flex items-center text-lg font-semibold hover:text-indigo-200 transition duration-200">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path d="M12 2v20M2 12h20" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
@@ -91,6 +142,22 @@ require "./header.php";
                     </a>
                 </li>
                 <li>
+                    <a href="#profile" data-content="profile.php" class="sidebar-link flex items-center text-lg hover:text-indigo-200 transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#calendar" data-content="calendar.php" class="sidebar-link flex items-center text-lg hover:text-indigo-200 transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path d="M3 10h18M8 3v3M16 3v3M4 8h16v13H4V8z" />
+                        </svg>
+                        Calendar
+                    </a>
+                </li>
+                <li>
                     <a href="#settings" data-content="settings.php" class="sidebar-link flex items-center text-lg hover:text-indigo-200 transition duration-200">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path d="M12 8v4M12 16v1M8 12h4M12 12h4M5 3v1M5 6v1M5 9v1M5 12v1M5 15v1M5 18v1M19 3v1M19 6v1M19 9v1M19 12v1M19 15v1M19 18v1" />
@@ -106,8 +173,14 @@ require "./header.php";
                         Help
                     </a>
                 </li>
+                <li>
+                <a href="./Home.php" class="text-sm font-semibold bg-red-500 hover:bg-red-600 transition rounded-lg px-4 py-2 text-white">
+                        Logout
+                    </a>
+                </li>
             </ul>
         </nav>
+
 
 
         <!-- Main Content -->
