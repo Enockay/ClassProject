@@ -1,0 +1,12 @@
+{
+    "name": "enockay/classproject",
+    "authors": [
+        {
+            "name": "Enockay",
+            "email": "enockaymwema@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/console": "^6.0"
+    }
+}
