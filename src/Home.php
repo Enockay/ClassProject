@@ -327,36 +327,149 @@ require "./header.php";
             </div>
         </div>
     </section>
+<!-- Blog/News Section -->
+<section id="blog" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-6">Chuka University Computer Science Blog</h2>
+        <p class="text-lg text-gray-700 text-center mb-12">
+            Stay updated with the latest trends in technology, student achievements, and alumni success stories.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Blog Post 1 -->
+            <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6">
+                <img src="./assets/The Rise of AI in Everyday Life.jpeg" alt="AI Revolution" class="rounded-lg mb-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">The Rise of AI in Everyday Life</h3>
+                <p class="text-gray-600 mb-4">
+                    Artificial Intelligence is reshaping industries. Discover how our students are using AI to build smart systems and solve real-world challenges.
+                </p>
+                <a href="#" class="text-blue-600 hover:underline font-semibold">Read More &rarr;</a>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6">
+                <img src="./assets/Emerging Trends in Cybersecurity.jpeg" alt="Cybersecurity Trends" class="rounded-lg mb-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Emerging Trends in Cybersecurity</h3>
+                <p class="text-gray-600 mb-4">
+                    Learn about the latest cybersecurity challenges and how our students are contributing to building safer digital ecosystems.
+                </p>
+                <a href="#" class="text-blue-600 hover:underline font-semibold">Read More &rarr;</a>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-6">
+                <img src="./assets/Alumni Spotlight: Jane Doe.jpeg" alt="Alumni Success" class="rounded-lg mb-4">
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">Alumni Spotlight: Enock Mwema</h3>
+                <p class="text-gray-600 mb-4">
+                    Meet Jane Doe, a Chuka University alumna who is now leading innovative projects in blockchain technology at a global tech firm.
+                </p>
+                <a href="#" class="text-blue-600 hover:underline font-semibold">Read More &rarr;</a>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                View All Posts
+            </a>
+        </div>
+    </div>
+</section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center">
-            <h2 class="text-2xl font-bold text-gray-900">What Our Students Say</h2>
-            <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                Hear from our students and alumni about their experiences in the Computer Science class.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white shadow-lg p-6 rounded-lg">
-                    <p class="text-gray-600 italic">"This class gave me the tools and confidence to land my dream job in tech!"</p>
-                    <div class="text-right mt-4">
-                        <span class="text-blue-600 font-bold">- Alex Johnson</span>
+<section id="testimonials" class="py-8 bg-gray-100">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">What Our Students Say</h2>
+        <p class="text-lg text-gray-700 mb-12">
+            Discover how our Computer Science program has shaped the journeys of our students and alumni.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Testimonial 1 -->
+            <div class="bg-white shadow-md hover:shadow-lg transition p-6 rounded-lg">
+                <p class="text-gray-600 italic mb-4">
+                    "The Computer Science class equipped me with cutting-edge skills and opened doors to exciting career opportunities."
+                </p>
+                <div class="flex items-center space-x-4 mt-6">
+                    <img src="https://via.placeholder.com/50" alt="Alex Johnson" class="w-12 h-12 rounded-full">
+                    <div>
+                        <p class="text-blue-600 font-bold">Alex Johnson</p>
+                        <p class="text-sm text-gray-500">Software Engineer at TechCorp</p>
                     </div>
                 </div>
-                <div class="bg-white shadow-lg p-6 rounded-lg">
-                    <p class="text-gray-600 italic">"The collaborative environment and expert guidance were invaluable."</p>
-                    <div class="text-right mt-4">
-                        <span class="text-blue-600 font-bold">- Emily Davis</span>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-white shadow-md hover:shadow-lg transition p-6 rounded-lg">
+                <p class="text-gray-600 italic mb-4">
+                    "The mentorship and practical projects gave me the confidence to thrive in the tech industry."
+                </p>
+                <div class="flex items-center space-x-4 mt-6">
+                    <img src="https://via.placeholder.com/50" alt="Emily Davis" class="w-12 h-12 rounded-full">
+                    <div>
+                        <p class="text-blue-600 font-bold">Emily Davis</p>
+                        <p class="text-sm text-gray-500">Data Scientist at InnovateAI</p>
                     </div>
                 </div>
-                <div class="bg-white shadow-lg p-6 rounded-lg">
-                    <p class="text-gray-600 italic">"I loved the hands-on approach and real-world projects!"</p>
-                    <div class="text-right mt-4">
-                        <span class="text-blue-600 font-bold">- Michael Lee</span>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="bg-white shadow-md hover:shadow-lg transition p-6 rounded-lg">
+                <p class="text-gray-600 italic mb-4">
+                    "This class provided real-world learning experiences that made me industry-ready."
+                </p>
+                <div class="flex items-center space-x-4 mt-6">
+                    <img src="https://via.placeholder.com/50" alt="Michael Lee" class="w-12 h-12 rounded-full">
+                    <div>
+                        <p class="text-blue-600 font-bold">Michael Lee</p>
+                        <p class="text-sm text-gray-500">Full Stack Developer at CodeWorks</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+  <!-- Footer -->
+<footer class="bg-gray-900 text-white">
+    <div class="container mx-auto px-6 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <!-- Logo or Title -->
+            <div class="text-lg font-semibold">
+                <a href="#" class="hover:text-gray-300">Computer Science Class</a>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="flex space-x-6">
+                <a href="#about" class="text-gray-400 hover:text-white text-sm">About Us</a>
+                <a href="#resources" class="text-gray-400 hover:text-white text-sm">Resources</a>
+                <a href="#contact" class="text-gray-400 hover:text-white text-sm">Contact</a>
+                <a href="#faq" class="text-gray-400 hover:text-white text-sm">FAQ</a>
+            </div>
+        </div>
+
+        <div class="mt-6 border-t border-gray-700 pt-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <!-- Copyright -->
+            <p class="text-sm text-gray-400">&copy; 2024 Computer Science Class. All rights reserved.</p>
+
+            <!-- Social Media Links -->
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.22 4.22 0 001.85-2.31 8.33 8.33 0 01-2.64 1.01 4.19 4.19 0 00-7.14 3.82A11.88 11.88 0 013.1 4.56a4.19 4.19 0 001.3 5.58 4.16 4.16 0 01-1.9-.52v.05a4.19 4.19 0 003.36 4.11 4.21 4.21 0 01-1.9.07 4.2 4.2 0 003.92 2.91A8.38 8.38 0 012 19.54 11.83 11.83 0 007.29 21c7.59 0 11.74-6.3 11.74-11.77 0-.18 0-.35-.01-.53a8.38 8.38 0 002.06-2.14z" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M22 6.06c-.77.35-1.6.58-2.46.69a4.22 4.22 0 001.85-2.31 8.33 8.33 0 01-2.64 1.01 4.19 4.19 0 00-7.14 3.82A11.88 11.88 0 013.1 4.56a4.19 4.19 0 001.3 5.58 4.16 4.16 0 01-1.9-.52v.05a4.19 4.19 0 003.36 4.11 4.21 4.21 0 01-1.9.07 4.2 4.2 0 003.92 2.91A8.38 8.38 0 012 19.54 11.83 11.83 0 007.29 21c7.59 0 11.74-6.3 11.74-11.77 0-.18 0-.35-.01-.53a8.38 8.38 0 002.06-2.14z" />
+                    </svg>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M19.78 2H4.22C3.54 2 3 2.54 3 3.22v17.56C3 21.46 3.54 22 4.22 22H19.8c.68 0 1.22-.54 1.22-1.22V3.22C21 2.54 20.46 2 19.78 2zM8.57 18.11H5.92V9.9h2.65v8.21zm-1.33-9.34a1.54 1.54 0 01-1.55-1.56c0-.86.69-1.56 1.55-1.56.86 0 1.55.7 1.55 1.56 0 .87-.69 1.56-1.55 1.56zm11.57 9.34h-2.65v-4.5c0-1.13-.02-2.6-1.59-2.6-1.6 0-1.84 1.25-1.84 2.52v4.58H9.65V9.9h2.55v1.12h.04c.36-.68 1.22-1.4 2.51-1.4 2.69 0 3.18 1.76 3.18 4.04v4.45z" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+
     <script>
         const carousel = document.querySelector('.carousel');
         const prev = document.getElementById('prev');
